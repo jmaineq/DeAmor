@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>DeAmor Petals - Send Order</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="../FP Styles/general.css">
+        <link rel="stylesheet" href="../FP Styles/order.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <div>
+                <img class="header-logo" src="../FP Images/deamor-petals-logo.png">
+            </div>
+            <h1>ORDER FORM</h1>
+            <a class="left-nav" href="catalog.html">
+                <div>
+                    Product Catalog
+                </div>
+            </a>
+            <a class="right-nav" href="home.html">
+                <div>
+                    Home
+                </div>
+            </a>
+        </header>
+        <section>
+            <div>
+                <form class="order-form-content-cont" id="form" action="home.html">
+                    <div  class="order-form-content">
+                        <div class="order-form-label">
+                            <label for="product-name">Product Name:</label>
+                            <label for="product-quantity">Product Quantity:</label>
+                            <label for="total">Total Amount to be paid:</label>
+                            <label class="label" for="customer">Customer's Name:</label>
+                            <label for="address">Delivery Address:</label>
+                            <label for="contact">Contact Number:</label>
+                            <label for="date">Date Ordered:</label>
+                            <label for="payment-mode">Mode of Payment:</label>
+                            <label class="label" for="confirm">Confirmation:</label>
+                        </div>
+                        <div class="order-form-input">
+                            <input type="text" id="product-name" name="product-name" value="" disabled>
+                            <input type="text" id="product-quantity" name="product-quantity" placeholder="Quantity">
+                            <input type="text" id="total" name="total" value="" disabled>
+                            <input class="input" type="text" id="customer" name="customer" placeholder="Name">
+                            <input type="text" id="address" name="address" placeholder="Address">
+                            <input type="text" id="contact" name="contact" placeholder="Contact">
+                            <input type="text" id="date" name="date" value="" disabled>
+                            <select id="payment-mode" name="payment-mode">
+                                <option value="GCash">Gcash</option>
+                                <option value="Mastercard">Mastercard</option>
+                                <option value="CashOnDelivery">Cash on delivery</option>
+                            </select>
+                            <select class="input" id="confirm" name="confirm">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                            <script>
+                                window.addEventListener("DOMContentLoaded",
+                                function() {
+                                    var urlParams = new URLSearchParams(window.location.search);
+                                    var previousPage = urlParams.get("previous");
+                                    var form = document.getElementById("form");
+                                    var inputFieldProd = document.getElementById("product-name");
+                                    var inputFieldQuan = document.getElementById("product-quantity");
+                                    var inputFieldTotal = document.getElementById("total");
+                                    var inputFieldCusto = document.getElementById("customer");
+                                    var inputFieldAddre = document.getElementById("address");
+                                    var inputFieldConta = document.getElementById("contact");
+                                    var inputFieldDate = document.getElementById("date");
+                                    var inputSelectCon = document.getElementById("confirm");
+                                    var inputSubmitBtn = document.getElementById("submit-button");
+                                    var price = 0;
+                                    var total = 0;
+                                    let today = new Date().toISOString().slice(0, 10);
+                                    inputFieldDate.value = today;
+                                    form.addEventListener("submit", function() {
+                                        if (inputFieldQuan.value === "" || inputFieldCusto.value === "" || inputFieldAddre.value === ""
+                                            || inputFieldConta.value === "") {
+                                            event.preventDefault();
+                                            alert("Please fill-out all necessary information!");
+                                        } else {
+                                            alert("Your order is being processed!\nThank you for choosing DeAmor Petals!");
+                                        }
+                                    });
+                                    inputSelectCon.addEventListener("change", function() {
+                                        if (inputSelectCon.value === "No") {
+                                            inputSubmitBtn.disabled = true;
+                                        } else {
+                                            inputSubmitBtn.disabled = false;
+                                        }
+                                    });
+                                    switch (previousPage) {
+                                        case "rose":
+                                            inputFieldProd.value = "Rose Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "daisy":
+                                            inputFieldProd.value = "Daisy Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "sunflower":
+                                            inputFieldProd.value = "Sunflower Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "tulips":
+                                            inputFieldProd.value = "Tulips Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "zinnia":
+                                            inputFieldProd.value = "Zinnia Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "carnation":
+                                            inputFieldProd.value = "Carnation Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "orchid":
+                                            inputFieldProd.value = "Orchid Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "peonies":
+                                            inputFieldProd.value = "Peonies Bunch";
+                                            price = 999;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b1":
+                                            inputFieldProd.value = "Basket 1";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b2":
+                                            inputFieldProd.value = "Basket 2";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b3":
+                                            inputFieldProd.value = "Basket 3";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b4":
+                                            inputFieldProd.value = "Basket 4";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b5":
+                                            inputFieldProd.value = "Basket 5";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b6":
+                                            inputFieldProd.value = "Basket 6";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b7":
+                                            inputFieldProd.value = "Basket 7";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "b8":
+                                            inputFieldProd.value = "Basket 8";
+                                            price = 499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "bracelet":
+                                            inputFieldProd.value = "Bracelet";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "chocolate":
+                                            inputFieldProd.value = "Chocolate";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "necklace":
+                                            inputFieldProd.value = "Necklace";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "outfit":
+                                            inputFieldProd.value = "Outfit";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "ring":
+                                            inputFieldProd.value = "Ring";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "shoes":
+                                            inputFieldProd.value = "Shoes";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "wallet":
+                                            inputFieldProd.value = "Wallet";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        case "watch":
+                                            inputFieldProd.value = "Watch";
+                                            price = 1499;
+                                            inputFieldQuan.addEventListener("input" , function() {
+                                                total = price * document.getElementById("product-quantity").value;
+                                                inputFieldTotal.value = "P " + total;
+                                            });
+                                            break;
+                                        default:
+                                            inputFieldProd.value = "Product";
+                                            inputFieldTotal.value = "Total";
+                                        }
+                                    });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" id="submit-button" value="Submit order" disabled>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

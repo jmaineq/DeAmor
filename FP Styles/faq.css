@@ -1,0 +1,20 @@
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section {
+    margin-top: 100px;
+    padding: 20px;
+}
+h3 {
+    color: #5c5c5c;
+}
+.faq-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 600px;
+}
